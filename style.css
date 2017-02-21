@@ -18,7 +18,7 @@
 
 header {background: #008B8B;color:white;}
 footer {background: #aaa;color:white;}
-.nav {background:#eee; max-width: 200px;}
+.nav {background:#eee; min-width: 200px;}
 
 .nav ul {
     list-style-type: none;
