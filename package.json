@@ -1,0 +1,25 @@
+{
+  "name": "bc-19-chart-application",
+  "version": "1.0.0",
+  "description": "An application that takes text data and display data in pie chart, bar chart, histogram and line graph",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faithfreecoder/bc-19-ChartApplication.git"
+  },
+  "keywords": [
+    "\"Charts\"",
+    "\"bar",
+    "chart\"",
+    "\"histogram\""
+  ],
+  "author": "Faith <fyoiza@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/faithfreecoder/bc-19-ChartApplication/issues"
+  },
+  "homepage": "https://github.com/faithfreecoder/bc-19-ChartApplication#readme"
+}
