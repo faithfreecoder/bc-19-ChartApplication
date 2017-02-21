@@ -29,7 +29,7 @@ function drawArc(ctx, centerX, centerY, radius, startAngle, endAngle){
 
 var data = {
     "Classical music": 10,
-    "Alternative rock": 14,
+    "Alternative rock": 20,
     "Pop": 2,
     "Jazz": 12
 };
@@ -46,6 +46,15 @@ var Piechart = function(options){
         for (var categ in this.options.data){
             var val = this.options.data[categ];
             total_value += val;
+        }
+        
+        if (this.options.legend){
+            color_index = 0;
+            var legendHTML = "";
+            for (categ in this.options.data){
+                legendHTML += "<div><span style='display:inline-block;width:20px;background-color:"+this.colors[color_index++]+";'>&nbsp;</span> "+categ+"</div>";
+            }
+            this.options.legend.innerHTML = legendHTML;
         }
  
         var start_angle = 0;
@@ -92,12 +101,13 @@ for (categ in this.options.data){
 }
     };
 };
-
+var pieLegend = document.getElementById("legend");
 var myPiechart = new Piechart(
     {
         canvas:myCanvas,
         data:data,
-        colors:["#fde23e","#f16e23", "#57d9ff","#937e88"]
+        colors:["#ff69B4","#cd5c5c", "#4b0082","#8fbc8f"],
+        legend:pieLegend
     }
 );
 myPiechart.draw();
