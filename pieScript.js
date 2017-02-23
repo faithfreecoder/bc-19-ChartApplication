@@ -1,20 +1,9 @@
-var myCanvas = document.getElementById("myCanvas");
-myCanvas.width = 400;
+var myCanvas = document.getElementById("pieCanvas");
+myCanvas.width = 200;
 myCanvas.height = 300;
 var ctx = myCanvas.getContext("2d");
 
-function drawLine(ctx, startX, startY, endX, endY){
-    ctx.beginPath();
-    ctx.moveTo(startX,startY);
-    ctx.lineTo(endX,endY);
-    ctx.stroke();
-}
 
-function drawArc(ctx, centerX, centerY, radius, startAngle, endAngle){
-    ctx.beginPath();
-    ctx.arc(centerX, centerY, radius, startAngle, endAngle);
-    ctx.stroke();
-}
 
  function drawPieSlice(ctx,centerX, centerY, radius, startAngle, endAngle, color ){
     ctx.fillStyle = color;
@@ -87,12 +76,6 @@ for (categ in this.options.data){
     var labelX = this.canvas.width/2 + (pieRadius / 2) * Math.cos(start_angle + slice_angle/2);
     var labelY = this.canvas.height/2 + (pieRadius / 2) * Math.sin(start_angle + slice_angle/2);
  
-    if (this.options.doughnutHoleSize){
-        var offset = (pieRadius * this.options.doughnutHoleSize ) / 2;
-        labelX = this.canvas.width/2 + (offset + pieRadius / 2) * Math.cos(start_angle + slice_angle/2);
-        labelY = this.canvas.height/2 + (offset + pieRadius / 2) * Math.sin(start_angle + slice_angle/2);               
-    }
- 
     var labelText = Math.round(100 * val / total_value);
     this.ctx.fillStyle = "white";
     this.ctx.font = "bold 20px Arial";
@@ -104,7 +87,7 @@ for (categ in this.options.data){
 var pieLegend = document.getElementById("legend");
 var myPiechart = new Piechart(
     {
-        canvas:myCanvas,
+        canvas:pieCanvas,
         data:data,
         colors:["#ff69B4","#cd5c5c", "#4b0082","#8fbc8f"],
         legend:pieLegend

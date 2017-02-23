@@ -18,20 +18,27 @@
   <li><a href="#">Share on Social Media</a></li>
 </ul>
 
-<form>
-  Input Data:<br>
-  <input type="text" name="firstname"><br>
-  or Upload File:<br>
-  <input type="file" name="pic" accept="file_extension"><br>
-  <input type="submit">
-</form>
+<div>
+  <form>
+    <label for="title">Enter Title</label>
+    <input type="text" id="title" name="Chart Title" placeholder="Title of Chart..">
+    
+    <label for="data">Input Data</label>
+    <input type="text" id="data" name="Display Data" placeholder="Your data..">
+
+    <label for="fileUpload">Or Upload CSV file</label>
+    <input type="file" id="fileUpload" name="fileUpload" placeholder="Upload csv file with data.." accept= ".csv">
+
+    <input type="submit" value="Submit" onclick= "callAll()">
+  </form>
+</div>
 
 </nav>
 
 <article class="article">
   
   <h2>Pie Chart</h2>
-  <canvas id="myCanvas"></canvas>
+  <canvas id="pieCanvas"></canvas>
   <div id="legend"></div>
   <script type="text/javascript" src="pieScript.js"></script>
   <!--Include Bar graph script-->
