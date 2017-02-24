@@ -1,31 +1,46 @@
-var lCanvas = document.getElementById("lineCanvas");
-var cxt = lCanvas.getContext("2d");
-lCanvas.width =500;
-lCanvas.height =300;
-cxt.fillStyle = "#8b4513";
-cxt.font = "20 pt Verdana";
-	
-
+var lCanvas; 
+var cxt; 
 var Val_max;
 var Val_min;
 var sections;
 var xScale;
 var yScale;
-		// Values for the Data Plot, they can also be obtained from a external file
-var Apple =  [100, 102, 87,120, 100, 123, 100, 90, 87, 91, 93, 88];
-var Samsung = [30, 50, 70, 80, 90, 100, 95, 91, 85, 92, 99, 130];
-var Nokia =   [20, -10, -20, -25, -40, 5, 10, 28, 30, 43, 65, 80];
 
 function drawLineGraph() {
-		// set these values for your data 
-	sections = 12;
-	Val_max = 130;
-	Val_min = -40;
+			
+		// Values for the Data Plot
+//var aFellows =  [100, 102, 87,120, 100, 123, 100, 90, 87, 91, 93, 88];
+//var Samsung = [30, 50, 70, 80, 90, 100, 95, 91, 85, 92, 99, 130];
+//var Nokia =   [20, -10, -20, -25, -40, 5, 10, 28, 30, 43, 65, 80];
+lCanvas = document.getElementById("lineCanvas");
+cxt = lCanvas.getContext("2d");
+lCanvas.width =500;
+lCanvas.height =300;
+cxt.fillStyle = "#8b4513";
+cxt.font = "20 pt Verdana";
+var myData={};
+var dataInput =document.getElementById("data").value;
+console.log(dataInput);
+var arrData= dataInput.split(',');
+for(var i=0; i<arrData.length; i++)
+{
+  var arr2Data= arrData[i].split(' ');
+  myData[arr2Data[0]]=parseInt(arr2Data[1]);
+   
+}
+ var aFellows =Object.values(myData);
+ //var Samsung = [];
+ //var Nokia = [];
+
+
+	sections = 4;
+	Val_max = 30;
+	Val_min = 1;
 	var stepSize = 10;
 	var columnSize = 50;
 	var rowSize = 50;
 	var margin = 10;
-	var xAxis = [" ", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] 
+	var xAxis = Object.keys(myData);//[" ", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] 
 		
 		//Calculate spacing between parameters on the X and Y axis
 
@@ -42,7 +57,7 @@ function drawLineGraph() {
 		cxt.lineTo(x, lCanvas.height - margin);
 	}
 		// print row header and draw horizontal grid lines
-	var count =  0;
+	var count = 0;
 	for (scale=Val_max;scale>=Val_min;scale = scale - stepSize) {
 		var y = columnSize + (yScale * count * stepSize); 
 		cxt.fillText(scale, margin,y + margin);
@@ -58,11 +73,11 @@ function drawLineGraph() {
 		// Color of each dataplot items
 		
 	cxt.strokeStyle="#FF0066";
-	plotData(Apple);
-	cxt.strokeStyle="#9933FF";
-	plotData(Samsung);
-	cxt.strokeStyle="#000";
-	plotData(Nokia);
+	plotData(aFellows);
+	// cxt.strokeStyle="#9933FF";
+	// plotData(Samsung);
+	// cxt.strokeStyle="#000";
+	// plotData(Nokia);
 }
 
 function plotData(dataSet) {
@@ -73,5 +88,5 @@ function plotData(dataSet) {
 	}
 	cxt.stroke();
 }
-document.getElementById.innerHTML(drawLineGraph())
-document.getElementById("lineLegend");
+//document.getElementById.innerHTML(drawLineGraph())
+//document.getElementById("lineLegend");

@@ -1,33 +1,32 @@
-
-//var barCanvas = document.getElementById("barCanvas");
-//barCanvas.width = 400;
-//barCanvas.height = 300;
-//var ctx = barCanvas.getContext("2d");
-
-function drawline() {
-      ctx.beginPath();
-      ctx.moveTo(100, 10);
-      ctx.lineTo(100, 390);
-      ctx.strokeStyle = "brown";
-      ctx.stroke();
-}
-
-var canvas ;
-var context ;
 var Val_Max;
 var Val_Min;
 var sections;
 var xScale;
 var yScale;
 var y;
-		// values of each item on the graph
-var itemName = [ "USA", "China", "India", "Japan" , "Germany"];
-var itemValue = [ 14, 7, 4.2, 4, 3.5 ];
+function drawBarChart() {
+	
+var myData={};
+var dataInput =document.getElementById("data").value;
+console.log(dataInput);
+var arrData= dataInput.split(',');
+for(var i=0; i<arrData.length; i++)
+{
+  var arr2Data= arrData[i].split(' ');
+  myData[arr2Data[0]]=parseInt(arr2Data[1]);
+   
+}
 
-function init() {
-		// intialize values for each variables
+var itemName = Object.keys(myData);
+var itemValue = Object.values(myData);
+
+
+		// values of each item on the graph
+// var itemName = [ "USA", "China", "India", "Japan" , "Germany"];
+// var itemValue = [ 14, 7, 4.2, 4, 3.5 ];
+		// intialize values for each variable
 	sections = 5;
-	Val_Max = 14;
+	Val_Max = 20;
 	var stepSize = 1;
 	var columnSize = 50;
 	var rowSize = 60;
@@ -96,5 +95,5 @@ function computeHeight(value) {
 	y = barCanvas.height - value * yScale ;	
 }
 
-document.getElementById.innerHTML(init());
+//document.getElementById.innerHTML(init());
 
