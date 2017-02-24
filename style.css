@@ -46,6 +46,7 @@ input[type=submit]:hover {
 
 .article {
     text-align: left;
+    float: right;
 }
 
 header {background: #008B8B;color:white;}

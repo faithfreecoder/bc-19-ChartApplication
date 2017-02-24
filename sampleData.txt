@@ -1,0 +1,10 @@
+Chart Showing Number of Andela Fellows selected from 2013 to 2016
+
+2013 20,2014 18,2015 10,2016 12
+
+Things to Do 
+1.) Remove Line Graph legend
+2.) clean up code and add comments
+4.) Add print functionality
+5.) Add check boxes to display types of Chart
+6.) Do Upload file functionality 

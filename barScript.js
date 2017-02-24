@@ -4,8 +4,9 @@ var sections;
 var xScale;
 var yScale;
 var y;
+
 function drawBarChart() {
-	
+
 var myData={};
 var dataInput =document.getElementById("data").value;
 console.log(dataInput);
@@ -17,14 +18,8 @@ for(var i=0; i<arrData.length; i++)
    
 }
 
-var itemName = Object.keys(myData);
-var itemValue = Object.values(myData);
-
-
-		// values of each item on the graph
-// var itemName = [ "USA", "China", "India", "Japan" , "Germany"];
-// var itemValue = [ 14, 7, 4.2, 4, 3.5 ];
-		// intialize values for each variable
+	var itemName = Object.keys(myData);
+	var itemValue = Object.values(myData);
 	sections = 5;
 	Val_Max = 20;
 	var stepSize = 1;
