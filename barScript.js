@@ -26,16 +26,13 @@ for(var i=0; i<arrData.length; i++)
 	var columnSize = 50;
 	var rowSize = 60;
 	var margin = 10;
-	var header = "In Millon ₦" 
-		//
-		
-var barCanvas = document.getElementById("barCanvas");
-barCanvas.width = 500;
-barCanvas.height = 300;
-var ctx = barCanvas.getContext("2d");
-
+	var header = "In Millon =N=";	
+	var barCanvas = document.getElementById("barCanvas");
+	barCanvas.width = 500;
+	barCanvas.height = 300;
+	var ctx = barCanvas.getContext("2d");
+    //set chart spacing and bg line colours
 	ctx.fillStyle = "#5F9EA0;"
-	
 	yScale = (barCanvas.height - columnSize - margin) / (Val_Max);
 	xScale = (barCanvas.width - rowSize) / (sections + 1);
 	
@@ -91,4 +88,3 @@ function computeHeight(value) {
 }
 
 //document.getElementById.innerHTML(init());
-

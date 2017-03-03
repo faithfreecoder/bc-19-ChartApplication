@@ -29,6 +29,7 @@ for(var i=0; i<arrData.length; i++)
    
 }
  var aFellows =Object.values(myData);
+
  //var Samsung = [];
  //var Nokia = [];
 
@@ -40,7 +41,7 @@ for(var i=0; i<arrData.length; i++)
 	var columnSize = 50;
 	var rowSize = 50;
 	var margin = 10;
-	var xAxis = Object.keys(myData);//[" ", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] 
+	var xAxis =Object.keys(myData);//[" ", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] 
 		
 		//Calculate spacing between parameters on the X and Y axis
 
@@ -50,8 +51,8 @@ for(var i=0; i<arrData.length; i++)
 	cxt.strokeStyle="#708090"; // color of grid lines
 	cxt.beginPath();
 		// print Parameters on X axis, and grid lines on the graph
-	for (i=1;i<=sections;i++) {
-		var x = i * xScale;
+	for (i=0;i<=sections;i++) {
+		var x = (i+1) * xScale;
 		cxt.fillText(xAxis[i], x,columnSize - margin);
 		cxt.moveTo(x, columnSize);
 		cxt.lineTo(x, lCanvas.height - margin);
@@ -74,16 +75,16 @@ for(var i=0; i<arrData.length; i++)
 		
 	cxt.strokeStyle="#FF0066";
 	plotData(aFellows);
-	// cxt.strokeStyle="#9933FF";
-	// plotData(Samsung);
-	// cxt.strokeStyle="#000";
-	// plotData(Nokia);
+	//Display legend
+	var liLegend="Trend over a Period";
+	document.getElementById("lineLegend").innerHTML = liLegend;
+    //"<div><span style='color:"+cxt.strokeStyle+";'>&nbsp;</span> "+lineLegend+"</div>"
 }
 
 function plotData(dataSet) {
 	cxt.beginPath();
-	cxt.moveTo(0, dataSet[0]);
-	for (i=1;i<sections;i++) {
+	cxt.moveTo(dataSet[0], dataSet[0]);
+	for (i=0;i<sections;i++) {
 		cxt.lineTo(i * xScale, dataSet[i]);
 	}
 	cxt.stroke();

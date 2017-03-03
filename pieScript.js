@@ -4,7 +4,7 @@ function drawPieChart()
     var ctx;
     var myData={};
     myCanvas = document.getElementById("pieCanvas");
-    myCanvas.width = 200;
+    myCanvas.width = 300;
     myCanvas.height = 300;
     ctx = myCanvas.getContext("2d");
             
@@ -29,13 +29,13 @@ function drawPieChart()
         ctx.lineTo(endX,endY);
         ctx.stroke();
     }
-
+    //Define function to draw Arc.
     function drawArc(ctx, centerX, centerY, radius, startAngle, endAngle){
         ctx.beginPath();
         ctx.arc(centerX, centerY, radius, startAngle, endAngle);
         ctx.stroke();
     }
-
+    //Define function to draw pie slice.
     function drawPieSlice(ctx,centerX, centerY, radius, startAngle, endAngle, color ){
         ctx.fillStyle = color;
         ctx.beginPath();
@@ -90,7 +90,7 @@ function drawPieChart()
                 color_index++;
             }
 
-            //Add text to Pie Chart
+            //Display text on Pie Chart
             start_angle = 0;
         for (categ in this.options.data){
             val = this.options.data[categ];
@@ -105,7 +105,7 @@ function drawPieChart()
             this.ctx.fillText(labelText+"%", labelX,labelY);
             start_angle += slice_angle;
         }
-        }
+        }   // Display PieChart Legend
             if (this.options.legend){
             color_index = 0;
             var legendHTML = "";

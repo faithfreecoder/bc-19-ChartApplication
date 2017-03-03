@@ -7,10 +7,3 @@ FrontEnd 19,FullStack 6,Console 19,LanguageTools 15
 
 
 
-Things to Do 
-1.) Remove Line Graph legend
-2.) Ensure Input Data Field has value.
-3.) Do Upload file functionality
-4.) Add print functionality
-5.) Add check boxes to display types of Chart
-6.) clean up code and add comments  
